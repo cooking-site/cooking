@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>موقع وصفات سعودية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+   .logo {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 50px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom right, #fff8f0, #ffe6cc);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(90deg, #c94e50, #de8b55);
+      color: white;
+      padding: 20px 40px;
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      background-color: #fff3e6;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      font-size: 16px;
+    }
+
+    nav a {
+      color: #c94e50;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      display: flex;
+      padding: 20px;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar.hidden {
+      transform: translateX(100%);
+      position: absolute;
+      right: 0;
+    }
+
+    .sidebar h3 {
+      margin-bottom: 15px;
+      color: #c94e50;
+      font-size: 20px;
+      border-bottom: 2px solid #de8b55;
+      padding-bottom: 5px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 12px;
+      cursor: pointer;
+      color: #444;
+      padding: 5px 10px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .sidebar ul li:hover {
+      background-color: #ffe0cc;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .recipe-card {
+      background: linear-gradient(to top, #fff, #fff8f0);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .recipe-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    .recipe-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .recipe-content {
+      padding: 15px 20px;
+    }
+
+    .recipe-content h4 {
+      margin-bottom: 10px;
+      color: #b03e44;
+      font-size: 20px;
+    }
+
+    .ingredients {
+      font-size: 15px;
+      color: #555;
+    }
+
+    .ingredients ul {
+      margin-top: 5px;
+      padding-right: 20px;
+    }
+
+    .source {
+      font-size: 12px;
+      color: #888;
+      margin-top: 10px;
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(45deg, #c94e50, #de8b55);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      font-size: 15px;
+      z-index: 1000;
+    }
+
+    .view-button {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #c94e50;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .view-button:hover {
+      background-color: #a8383a;
+    }
+
+    footer {
+      background-color: #fff3e6;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #666;
+      border-top: 1px solid #eee;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #c94e50;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100%;
+        z-index: 998;
+        background-color: white;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    وصفات سعودية - الذ الأطباق التقليدية
+  </header>
+
+  <nav>
+    <a href="#">الصفحة الرئيسية</a>
+    <a href="#">تواصل معنا</a>
+    <a href="#">حول الموقع</a>
+  </nav>
+
+  <button class="toggle-btn" onclick="toggleSidebar()">📋 قائمة الأصناف</button>
+
+  <div class="container">
+    <div class="sidebar hidden" id="sidebar">
+      <h3>أصناف الأكل</h3>
+      <ul>
+        <li>الوجبات الرئيسية</li>
+        <li>الحلويات</li>
+        <li>مشروبات</li>
+      </ul>
+    </div>
+
+    <div class="main-content" id="recipes"></div>
+  </div>
+
+  <footer>
+    &copy; 2025 وصفات سعودية. جميع الحقوق محفوظة. | تصميم وتطوير بواسطة <a href="#">مطور سعودي</a>
+  </footer>
+<img src="favicon.ico" alt="Logo" class="logo">
+  <script>
+    const recipes = [
+      {
+        title: "الكبسة السعودية",
+        image: "https://static.webteb.net/images/content/ramadanrecipe_recipe_567_4506e8061f3-6b84-4a2d-a649-8fabd0cd768c.jpg",
+        source: "webteb.com",
+        ingredients: ["أرز بسمتي", "دجاج أو لحم", "طماطم", "جزر", "بهارات كبسة"]
+      },
+      {
+        title: "الجريش",
+        image: "https://cdn.salla.sa/yWpol/G5lks6ROj2UfiK8846urBELHTPw9AXH7W6V7dQ81.jpg",
+        source: "salla.sa",
+        ingredients: ["قمح مجروش", "لبن رائب", "بصل مقلي", "لحم مفروم"]
+      },
+      {
+        title: "الحنيذ",
+        image: "https://img.youm7.com/ArticleImgs/2018/7/9/37327-%D8%A7%D9%84%D8%AD%D9%86%D9%8A%D8%B0.jpg",
+        source: "youm7.com",
+        ingredients: ["لحم غنم", "أرز", "ورق موز أو قصدير", "بهارات"]
+      },
+      {
+        title: "المرقوق",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSP6YT7gwjwurpI2Twx8IJqu69l6v3cdVklw&s",
+        source: "google.com",
+        ingredients: ["لحم", "عجينة القمح", "كوسا", "بطاطس"]
+      },
+    ];
+
+    function renderRecipes() {
+      const container = document.getElementById('recipes');
+      container.innerHTML = '';
+      recipes.forEach(recipe => {
+        const card = document.createElement('div');
+        card.className = 'recipe-card';
+
+        const recipeFile = recipe.title.replace(/\s+/g, '-') + '.html';
+
+        card.innerHTML = `
+          <img src="${recipe.image}" alt="${recipe.title}" />
+          <div class="recipe-content">
+            <h4>${recipe.title}</h4>
+            <div class="ingredients">
+              <strong>المكونات:</strong>
+              <ul>
+                ${recipe.ingredients.map(item => `<li>${item}</li>`).join('')}
+              </ul>
+              <div class="source">المصدر: ${recipe.source}</div>
+              <br/>
+              <a href="${recipeFile}" class="view-button" target="_blank">👨‍🍳 شاهد الوصفة</a>
+            </div>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('hidden');
+    }
+
+    window.onload = renderRecipes;
+  </script>
+</body>
+</html>
