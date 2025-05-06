@@ -8,28 +8,42 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- باقي الهيدر والسايدبار -->
-    
-    <main class="content">
-        <h2><i class="fas fa-heart"></i> وصفاتي المفضلة</h2>
-        
-        <div class="favorites-container" id="favoritesList">
-            <!-- سيتم تعبئة الوصفات هنا -->
+    <header>
+        <div class="logo-container">
+            <div class="logo"></div>
+            <h1>وصفاتي</h1>
         </div>
-    </main>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul class="categories">
+                    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="sweet.html"><i class="fas fa-cookie"></i> الحلويات</a></li>
+                    <li><a href="asian.html"><i class="fas fa-egg"></i> الأكلات الآسيوية</a></li>
+                    <li><a href="best.html" class="active"><i class="fas fa-heart"></i> المفضلة</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <h2><i class="fas fa-heart"></i> وصفاتي المفضلة</h2>
+            
+            <div class="favorites-grid" id="favoritesList">
+                <!-- سيتم تعبئة الوصفات هنا -->
+            </div>
+        </main>
+    </div>
 
     <script>
         // تعريف جميع الوصفات
         window.allRecipes = [
-            // وصفات آسيوية
-            {id: 1, name: "سوشي", image: "url1", category: "آسيوية", time: "45 دقيقة"},
-            {id: 2, name: "رامين", image: "url2", category: "آسيوية", time: "60 دقيقة"},
-            
-            // وصفات حلويات
-            {id: 101, name: "البقلاوة", image: "url3", category: "حلويات", time: "60 دقيقة"},
-            
-            // وصفات رئيسية
-            {id: 1001, name: "كبسة دجاج", image: "url4", category: "سعودية", time: "90 دقيقة"}
+            // تأكد من أن هذه القائمة مطابقة للوصفات في الصفحات الأخرى
+            {id: 1, name: "سوشي", image: "url1.jpg", category: "آسيوية", time: "45 دقيقة"},
+            {id: 2, name: "رامين", image: "url2.jpg", category: "آسيوية", time: "60 دقيقة"},
+            {id: 101, name: "البقلاوة", image: "url3.jpg", category: "حلويات", time: "60 دقيقة"},
+            {id: 1001, name: "كبسة دجاج", image: "url4.jpg", category: "سعودية", time: "90 دقيقة"}
         ];
     </script>
     <script src="favorites.js"></script>
