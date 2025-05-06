@@ -3,59 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قائمة المفضلة - وصفاتي</title>
+    <title>المفضلة - وصفاتي</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <div class="logo"></div>
-            <h1>وصفاتي</h1>
+    <!-- باقي الهيدر والسايدبار -->
+    
+    <main class="content">
+        <h2><i class="fas fa-heart"></i> وصفاتي المفضلة</h2>
+        
+        <div class="favorites-container" id="favoritesList">
+            <!-- سيتم تعبئة الوصفات هنا -->
         </div>
-    </header>
-
-    <div class="container">
-        <aside class="sidebar">
-            <nav>
-                <ul class="categories">
-                    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
-                    <li><a href="sweet.html"><i class="fas fa-cookie"></i> الحلويات</a></li>
-                    <li><a href="asian.html"><i class="fas fa-egg"></i> الأكلات الآسيوية</a></li>
-                    <li><a href="best.html" class="active"><i class="fas fa-heart"></i> المفضلة</a></li>
-                </ul>
-            </nav>
-        </aside>
-
-        <main class="content">
-            <h2><i class="fas fa-heart"></i> وصفاتي المفضلة</h2>
-            
-            <div class="favorites-grid" id="favoritesList">
-                <!-- سيتم ملء الوصفات هنا -->
-            </div>
-        </main>
-    </div>
+    </main>
 
     <script>
+        // تعريف جميع الوصفات
         window.allRecipes = [
-            // Asian Recipes
-            { id: 1, name: "سوشي", image: "https://images.unsplash.com/photo-1611143669185-af224c5e3252", category: "آسيوية", time: "45 دقيقة" },
-            { id: 2, name: "رامين", image: "https://images.unsplash.com/photo-1623341214825-9f4f963727da", category: "آسيوية", time: "60 دقيقة" },
+            // وصفات آسيوية
+            {id: 1, name: "سوشي", image: "url1", category: "آسيوية", time: "45 دقيقة"},
+            {id: 2, name: "رامين", image: "url2", category: "آسيوية", time: "60 دقيقة"},
             
-            // Sweet Recipes
-            { id: 101, name: "البقلاوة", image: "https://kitchen.sayidaty.net/uploads/small/23/236a178eb13f0f31493572616d95d3af_w750_h500.jpg", category: "حلويات", time: "60 دقيقة" },
-            { id: 102, name: "الكنافة", image: "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26", category: "حلويات", time: "45 دقيقة" },
+            // وصفات حلويات
+            {id: 101, name: "البقلاوة", image: "url3", category: "حلويات", time: "60 دقيقة"},
             
-            // Main Recipes
-            { id: 1001, name: "كبسة دجاج", image: "https://www.maggiarabia.com/sites/default/files/styles/srh_recipes/public/srh_recipes/d791f1fe6db43b115f964d133e890d3a.png", category: "سعودية", time: "60 دقيقة" },
-            { id: 1002, name: "مندي لحم", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHyhB_XzlCfcOiKLz66X56BdWgbWEoGHC2dA&s", category: "سعودية", time: "120 دقيقة" }
+            // وصفات رئيسية
+            {id: 1001, name: "كبسة دجاج", image: "url4", category: "سعودية", time: "90 دقيقة"}
         ];
-
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.location.pathname.includes('best.html')) {
-                renderFavoriteRecipes(window.allRecipes);
-            }
-        });
     </script>
     <script src="favorites.js"></script>
 </body>
