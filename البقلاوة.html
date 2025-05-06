@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وصفة البقلاوة - وصفاتي</title>
+    <title>البقلاوة - وصفاتي</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -18,13 +18,18 @@
         }
         .recipe-image img {
             width: 100%;
-            height: 300px;
+            height: 400px;
             object-fit: cover;
             border-radius: 8px 8px 0 0;
         }
         .recipe-details h2 {
             color: #E74C3C;
-            margin: 10px 0;
+            margin: 15px 0 10px;
+            text-align: center;
+        }
+        .recipe-details h3 {
+            color: #333;
+            margin: 10px 0 5px;
         }
         .recipe-details ul {
             list-style-type: disc;
@@ -36,20 +41,25 @@
             color: #666;
         }
         .recipe-details li {
-            margin: 10px 0;
+            margin: 8px 0;
         }
         .back-btn {
-            display: inline-block;
-            padding: 10px 20px;
+            display: block;
+            width: 200px;
+            padding: 10px;
+            margin: 20px auto 0;
             background-color: #E74C3C;
             color: white;
             text-decoration: none;
+            text-align: center;
             border-radius: 5px;
-            margin-top: 20px;
             transition: background-color 0.3s;
         }
         .back-btn:hover {
             background-color: #c0392b;
+        }
+        .back-btn i {
+            margin-left: 5px;
         }
     </style>
 </head>
@@ -84,12 +94,5 @@
             <a href="index.html" class="back-btn">العودة إلى الصفحة الرئيسية <i class="fas fa-home"></i></a>
         </div>
     </div>
-    <script>
-        // دالة للتحقق من زر العودة
-        document.querySelector('.back-btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.location.href = this.getAttribute('href');
-        });
-    </script>
 </body>
 </html>
