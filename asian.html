@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأكلات الآسيوية - وصفاتي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="asian.css">
+</head>
+<body>
+    <header class="asian-header">
+        <div class="logo-container">
+            <div class="logo"></div>
+            <h1>وصفاتي</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="ابحث عن وصفة...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+
+    <div class="asian-container">
+        <aside class="asian-sidebar">
+            <nav>
+                <ul class="asian-categories">
+                    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="sweet.html"><i class="fas fa-cookie"></i> الحلويات</a></li>
+                    <li><a href="asian.html" class="active"><i class="fas fa-egg"></i> الأكلات الآسيوية</a></li>
+                    <li><a href="best.html"><i class="fas fa-heart"></i> المفضلة</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="asian-main">
+            <div class="asian-hero">
+                <h2>الأكلات الآسيوية</h2>
+                <p>استكشف ألذ الوصفات من مختلف أنحاء آسيا</p>
+            </div>
+
+            <div class="asian-recipes" id="recipes-container">
+                <!-- سيتم ملء الوصفات هنا -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const recipes = [
+                {
+                    id: 1,
+                    name: "سوشي",
+                    image: "https://images.unsplash.com/photo-1611143669185-af224c5e3252?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    description: "شرائح سمك نيئة مع الأرز والطحالب",
+                    time: "45 دقيقة"
+                },
+                {
+                    id: 2,
+                    name: "رامين",
+                    image: "https://images.unsplash.com/photo-1623341214825-9f4f963727da?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    description: "شوربة نودلز يابانية تقليدية",
+                    time: "60 دقيقة"
+                },
+                {
+                    id: 3,
+                    name: "بادر تاي",
+                    image: "https://images.unsplash.com/photo-1559314809-0d155014e29e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    description: "نودلز تايلندية مع البيض والبهارات",
+                    time: "40 دقيقة"
+                },
+                {
+                    id: 4,
+                    name: "ديم سوم",
+                    image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    description: "أصناف متنوعة من المأكولات الصينية",
+                    time: "90 دقيقة"
+                },
+                {
+                    id: 5,
+                    name: "تيكا ماسالا",
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ9QZERmsLk5ldbuB5mCXUebr3oZweK1abLNtioIKzlU5QIT1mqQFzr0aElKtEyN_i7XRomB1O4jwTRtu1wE43JrKdEZUd_FsnIkA8od8",
+                    description: "دجاج بالبهارات الهندية",
+                    time: "80 دقيقة"
+                },
+                {
+                    id: 6,
+                    name: "ساشيمي",
+                    image: "https://post.healthline.com/wp-content/uploads/2021/09/sushi-sashimi-1296x728-header.jpg",
+                    description: "شرائح سمك نيئة يابانية",
+                    time: "20 دقيقة"
+                },
+                {
+                    id: 7,
+                    name: "تندوري",
+                    image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    description: "دجاج مشوي بالبهارات الهندية",
+                    time: "90 دقيقة"
+                },
+                {
+                    id: 8,
+                    name: "سبرينج رول",
+                    image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    description: "لفائف رقيقة محشوة بالخضار",
+                    time: "35 دقيقة"
+                },
+                {
+                    id: 9,
+                    name: "بوكيه",
+                    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    description: "سلطة هاوايية متأثرة بالمطبخ الياباني",
+                    time: "25 دقيقة"
+                },
+                {
+                    id: 10,
+                    name: "شعيرية بالخضار",
+                    image: "https://images.unsplash.com/photo-1555126634-323283e090fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    description: "شعيرية صينية مع الخضار",
+                    time: "30 دقيقة"
+                }
+            ];
+
+            const container = document.getElementById("recipes-container");
+
+            recipes.forEach(recipe => {
+                const card = document.createElement("div");
+                card.className = "asian-recipe-card";
+                card.innerHTML = `
+                    <img src="${recipe.image}" alt="${recipe.name}" class="asian-recipe-img">
+                    <button class="asian-favorite-btn" data-id="${recipe.id}"><i class="far fa-heart"></i></button>
+                    <div class="asian-recipe-content">
+                        <h3 class="asian-recipe-title">${recipe.name}</h3>
+                        <div class="asian-recipe-meta">
+                            <span><i class="fas fa-utensils"></i> آسيوية</span>
+                            <span><i class="fas fa-clock"></i> ${recipe.time}</span>
+                        </div>
+                        <button class="asian-recipe-btn" onclick="viewRecipe(${recipe.id})">شاهد الوصفة</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        });
+
+        function viewRecipe(id) {
+            const selectedRecipe = recipes.find(r => r.id === id);
+            localStorage.setItem("selectedRecipe", JSON.stringify(selectedRecipe));
+            window.location.href = `asian-recipe.html?id=${id}`;
+        }
+    </script>
+    <script src="favorites.js"></script>
+    <script src="script.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93b80937397744dc',t:'MTc0NjUyOTg3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>
