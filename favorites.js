@@ -1,46 +1,37 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize favorites if not exists
+// Initialize favorites
+function initFavorites() {
     if (!localStorage.getItem('favorites')) {
         localStorage.setItem('favorites', JSON.stringify([]));
     }
-
-    // Update favorite buttons' state
-    updateFavoriteButtons();
-
-    // Add click event listeners to favorite buttons
-    document.querySelectorAll('.favorite-btn, .asian-favorite-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const recipeId = parseInt(this.getAttribute('data-id'));
-            toggleFavorite(recipeId);
-            this.classList.toggle('favorited');
-            this.innerHTML = this.classList.contains('favorited') ? 
-                '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>';
-            
-            // Re-render favorites if on favorites page
-            if (window.location.pathname.includes('best.html')) {
-                renderFavoriteRecipes(window.allRecipes || []);
-            }
-        });
-    });
-});
+}
 
 // Toggle favorite status
 function toggleFavorite(recipeId) {
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    initFavorites();
+    let favorites = JSON.parse(localStorage.getItem('favorites'));
     recipeId = parseInt(recipeId);
     
-    if (favorites.includes(recipeId)) {
-        favorites = favorites.filter(id => id !== recipeId);
-    } else {
+    const index = favorites.indexOf(recipeId);
+    if (index === -1) {
         favorites.push(recipeId);
+    } else {
+        favorites.splice(index, 1);
     }
+    
     localStorage.setItem('favorites', JSON.stringify(favorites));
+    updateFavoriteButtons();
+    
+    // Re-render if on favorites page
+    if (window.location.pathname.includes('best.html')) {
+        renderFavoriteRecipes(window.allRecipes || []);
+    }
 }
 
-// Update favorite buttons' state
+// Update favorite buttons
 function updateFavoriteButtons() {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    initFavorites();
+    const favorites = JSON.parse(localStorage.getItem('favorites'));
+    
     document.querySelectorAll('.favorite-btn, .asian-favorite-btn').forEach(btn => {
         const recipeId = parseInt(btn.getAttribute('data-id'));
         if (favorites.includes(recipeId)) {
@@ -53,22 +44,25 @@ function updateFavoriteButtons() {
     });
 }
 
-// Render favorite recipes (used in best.html)
+// Render favorite recipes
 function renderFavoriteRecipes(recipes) {
     const favoritesContainer = document.getElementById('favoritesList');
     if (!favoritesContainer) return;
 
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    const filteredRecipes = recipes.filter(recipe => favorites.includes(parseInt(recipe.id)));
+    initFavorites();
+    const favorites = JSON.parse(localStorage.getItem('favorites'));
+    const filteredRecipes = recipes.filter(recipe => 
+        recipe && favorites.includes(parseInt(recipe.id))
+        .sort((a, b) => a.name.localeCompare(b.name));
 
     favoritesContainer.innerHTML = '';
 
     if (filteredRecipes.length === 0) {
         favoritesContainer.innerHTML = `
-            <div class="empty-message" style="grid-column:1/-1;text-align:center;padding:2rem;">
-                <i class="fas fa-heart-broken" style="font-size:3rem;color:#E74C3C;margin-bottom:1rem;"></i>
-                <p>لا توجد وصفات في قائمة المفضلة لديك</p>
-                <p>اضغط على زر ♡ في أي وصفة لإضافتها هنا</p>
+            <div class="empty-message">
+                <i class="fas fa-heart-broken"></i>
+                <p>لا توجد وصفات في المفضلة</p>
+                <p>اضغط على ♡ لإضافة وصفات</p>
             </div>
         `;
         return;
@@ -76,33 +70,49 @@ function renderFavoriteRecipes(recipes) {
 
     filteredRecipes.forEach(recipe => {
         const recipeElement = document.createElement('div');
-        recipeElement.className = 'recipe-card';
+        recipeElement.className = 'recipe-card favorite-card';
         recipeElement.innerHTML = `
-            <img src="${recipe.image}" alt="${recipe.name}" class="recipe-img">
+            <img src="${recipe.image}" alt="${recipe.name}">
             <button class="favorite-btn favorited" data-id="${recipe.id}">
                 <i class="fas fa-heart"></i>
             </button>
-            <div class="recipe-content">
-                <h3 class="recipe-title">${recipe.name}</h3>
+            <div class="recipe-info">
+                <h3>${recipe.name}</h3>
                 <div class="recipe-meta">
                     <span><i class="fas fa-utensils"></i> ${recipe.category}</span>
                     <span><i class="fas fa-clock"></i> ${recipe.time}</span>
                 </div>
-                <button class="view-btn" onclick="viewRecipe(${recipe.id})">شاهد الوصفة</button>
+                <div class="recipe-ingredients">
+                    <h4>المكونات:</h4>
+                    <ul>
+                        <li>أرز</li>
+                        <li>خضروات</li>
+                        <li>بهارات</li>
+                        <li>لحوم/أسماك</li>
+                        <li>صلصات</li>
+                    </ul>
+                </div>
             </div>
         `;
         favoritesContainer.appendChild(recipeElement);
     });
 
-    // Update buttons after rendering
-    updateFavoriteButtons();
+    // Add event listeners to new buttons
+    document.querySelectorAll('.favorite-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleFavorite(this.getAttribute('data-id'));
+        });
+    });
 }
 
-// View recipe details
-function viewRecipe(recipeId) {
-    const recipe = (window.allRecipes || []).find(r => r.id === parseInt(recipeId));
-    if (recipe) {
-        localStorage.setItem('selectedRecipe', JSON.stringify(recipe));
-        window.location.href = `recipe.html?id=${recipeId}`;
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    initFavorites();
+    updateFavoriteButtons();
+    
+    // Initial render for favorites page
+    if (window.location.pathname.includes('best.html') && window.allRecipes) {
+        renderFavoriteRecipes(window.allRecipes);
     }
-}
+});
