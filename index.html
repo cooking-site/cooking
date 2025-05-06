@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وصفاتي - وصفات سعودية</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="favicon.ico" alt="وصفاتي" class="logo">
+            <h1>وصفاتي</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="ابحث عن وصفة...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul class="categories">
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="sweet.html"><i class="fas fa-cookie"></i> الحلويات</a></li>
+                    <li><a href="asian.html"><i class="fas fa-egg"></i> الأكلات الآسيوية</a></li>
+                    <li><a href="best.html"><i class="fas fa-heart"></i> المفضلة</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <h2>أحدث الوصفات</h2>
+            
+            <div class="recipes-grid">
+                <!-- وصفة 1 -->
+                <div class="recipe-card">
+                    <img src="https://www.maggiarabia.com/sites/default/files/styles/srh_recipes/public/srh_recipes/d791f1fe6db43b115f964d133e890d3a.png?h=4f5b30f1&itok=TAeSYG2q" alt="كبسة دجاج">
+                    <button class="favorite-btn" data-id="1"><i class="far fa-heart"></i></button>
+                    <h3>كبسة دجاج</h3>
+                    <div class="recipe-meta">
+                        <span><i class="fas fa-utensils"></i> الأكلات السعودية</span>
+                        <span><i class="fas fa-clock"></i> 60 دقيقة</span>
+                    </div>
+                    <div class="recipe-ingredients">
+                        <h4>المكونات:</h4>
+                        <ul class="ingredients-list">
+                            <li>دجاج مقطع</li>
+                            <li>أرز بسمتي</li>
+                            <li>طماطم</li>
+                            <li>بهارات كبسة</li>
+                            <li>زيت نباتي</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- وصفة 2 -->
+                <div class="recipe-card">
+                    <img src="https://img.youm7.com/ArticleImgs/2020/11/20/90023-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%AC%D8%A7.jpg" alt="الكليجا">
+                    <button class="favorite-btn" data-id="2"><i class="far fa-heart"></i></button>
+                    <h3>الكليجا</h3>
+                    <div class="recipe-meta">
+                        <span><i class="fas fa-cookie"></i> الحلويات</span>
+                        <span><i class="fas fa-clock"></i> 90 دقيقة</span>
+                    </div>
+                    <div class="recipe-ingredients">
+                        <h4>المكونات:</h4>
+                        <ul class="ingredients-list">
+                            <li>دقيق</li>
+                            <li>سكر</li>
+                            <li>زبدة</li>
+                            <li>تمر</li>
+                            <li>هيل</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- وصفة 3 -->
+                <div class="recipe-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHyhB_XzlCfcOiKLz66X56BdWgbWEoGHC2dA&s" alt="مندي لحم">
+                    <button class="favorite-btn" data-id="3"><i class="far fa-heart"></i></button>
+                    <h3>مندي لحم</h3>
+                    <div class="recipe-meta">
+                        <span><i class="fas fa-utensils"></i> الأكلات السعودية</span>
+                        <span><i class="fas fa-clock"></i> 120 دقيقة</span>
+                    </div>
+                    <div class="recipe-ingredients">
+                        <h4>المكونات:</h4>
+                        <ul class="ingredients-list">
+                            <li>لحم ضأن</li>
+                            <li>أرز بسمتي</li>
+                            <li>بهارات مندي</li>
+                            <li>زعفران</li>
+                            <li>زيت</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- وصفة 4 -->
+                <div class="recipe-card">
+                    <img src="https://rizpresto.ma/wp-content/uploads/2024/12/types-of-sushi-1024x675.jpg" alt="سوشي">
+                    <button class="favorite-btn" data-id="4"><i class="far fa-heart"></i></button>
+                    <h3>سوشي</h3>
+                    <div class="recipe-meta">
+                        <span><i class="fas fa-fish"></i> الأكلات الآسيوية</span>
+                        <span><i class="fas fa-clock"></i> 45 دقيقة</span>
+                    </div>
+                    <div class="recipe-ingredients">
+                        <h4>المكونات:</h4>
+                        <ul class="ingredients-list">
+                            <li>أرز السوشي</li>
+                            <li>سمك السلمون</li>
+                            <li>أعشاب بحرية</li>
+                            <li>خل الأرز</li>
+                            <li>صوص الصويا</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- وصفة 5: المطازيز -->
+                <div class="recipe-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/1%D9%85%D8%B7%D8%A7%D8%B2%D9%8A%D8%B2.jpg" alt="المطازيز">
+                    <button class="favorite-btn" data-id="1005"><i class="far fa-heart"></i></button>
+                    <h3>المطازيز</h3>
+                    <div class="recipe-meta">
+                        <span><i class="fas fa-utensils"></i> الأكلات السعودية</span>
+                        <span><i class="fas fa-clock"></i> 120 دقيقة</span>
+                    </div>
+                    <div class="recipe-ingredients">
+                        <h4>المكونات:</h4>
+                        <ul class="ingredients-list">
+                            <li>لحم ضأن</li>
+                            <li>دقيق القمح</li>
+                            <li>طماطم مهروسة</li>
+                            <li>لومي</li>
+                            <li>بهارات مطازيز</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- وصفة 6: المنسف -->
+                <div class="recipe-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Mansaf1_cropped.jpg" alt="المنسف">
+                    <button class="favorite-btn" data-id="1006"><i class="far fa-heart"></i></button>
+                    <h3>المنسف</h3>
+                    <div class="recipe-meta">
+                        <span><i class="fas fa-utensils"></i> الأكلات السعودية</span>
+                        <span><i class="fas fa-clock"></i> 150 دقيقة</span>
+                    </div>
+                    <div class="recipe-ingredients">
+                        <h4>المكونات:</h4>
+                        <ul class="ingredients-list">
+                            <li>لحم غنم</li>
+                            <li>لبن جميد</li>
+                            <li>أرز بسمتي</li>
+                            <li>سمن بلدي</li>
+                            <li>لوز محمص</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- وصفة 7: القرصان -->
+                <div class="recipe-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Tharid..JPG/800px-Tharid..JPG" alt="القرصان">
+                    <button class="favorite-btn" data-id="1007"><i class="far fa-heart"></i></button>
+                    <h3>القرصان</h3>
+                    <div class="recipe-meta">
+                        <span><i class="fas fa-utensils"></i> الأكلات السعودية</span>
+                        <span><i class="fas fa-clock"></i> 90 دقيقة</span>
+                    </div>
+                    <div class="recipe-ingredients">
+                        <h4>المكونات:</h4>
+                        <ul class="ingredients-list">
+                            <li>خبز القرصان</li>
+                            <li>لحم دجاج</li>
+                            <li>مرق لحم</li>
+                            <li>بصل مقلي</li>
+                            <li>بهارات قرصان</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- وصفة 8: مثلوثة -->
+                <div class="recipe-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/White%2C_Brown%2C_Red_%26_Wild_rice.jpg/800px-White%2C_Brown%2C_Red_%26_Wild_rice.jpg" alt="مثلوثة">
+                    <button class="favorite-btn" data-id="1008"><i class="far fa-heart"></i></button>
+                    <h3>مثلوثة</h3>
+                    <div class="recipe-meta">
+                        <span><i class="fas fa-utensils"></i> الأكلات السعودية</span>
+                        <span><i class="fas fa-clock"></i> 100 دقيقة</span>
+                    </div>
+                    <div class="recipe-ingredients">
+                        <h4>المكونات:</h4>
+                        <ul class="ingredients-list">
+                            <li>لحم ضأن</li>
+                            <li>خضروات مشكلة</li>
+                            <li>أرز بسمتي</li>
+                            <li>بهارات سعودية</li>
+                            <li>سمن</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- وصفة 9: الصبة -->
+                <div class="recipe-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Sabbah3.JPG/1024px-Sabbah3.JPG" alt="الصبة">
+                    <button class="favorite-btn" data-id="1009"><i class="far fa-heart"></i></button>
+                    <h3>الصبة</h3>
+                    <div class="recipe-meta">
+                        <span><i class="fas fa-utensils"></i> الأكلات السعودية</span>
+                        <span><i class="fas fa-clock"></i> 110 دقيقة</span>
+                    </div>
+                    <div class="recipe-ingredients">
+                        <h4>المكونات:</h4>
+                        <ul class="ingredients-list">
+                            <li>دجاج مقطع</li>
+                            <li>كوسا</li>
+                            <li>طماطم</li>
+                            <li>لومي</li>
+                            <li>بهارات صبة</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- وصفة 10: الرقش -->
+                <div class="recipe-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/ar/0/06/%D8%B1%D9%82%D8%B4.jpg" alt="الرقش">
+                    <button class="favorite-btn" data-id="1010"><i class="far fa-heart"></i></button>
+                    <h3>الرقش</h3>
+                    <div class="recipe-meta">
+                        <span><i class="fas fa-utensils"></i> الأكلات السعودية</span>
+                        <span><i class="fas fa-clock"></i> 80 دقيقة</span>
+                    </div>
+                    <div class="recipe-ingredients">
+                        <h4>المكونات:</h4>
+                        <ul class="ingredients-list">
+                            <li>دقيق القمح</li>
+                            <li>لحم مفروم</li>
+                            <li>بصل مفروم</li>
+                            <li>بهارات رقش</li>
+                            <li>زيت للقلي</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="favorites.js"></script>
+    <script>
+        // مصفوفة الوصفات الإضافية
+        const moreRecipes = [
+            // وصفات سعودية إضافية
+            {
+                id: 19,
+                name: "المطازيز",
+                image: "images/recipes/matazeez.jpg",
+                category: "الأكلات السعودية",
+                time: "120 دقيقة",
+                icon: "fas fa-utensils",
+                description: "طبق تقليدي من العجين المطبوخ مع اللحم والخضروات في مرق غني."
+            },
+            {
+                id: 20,
+                name: "المنسف",
+                image: "images/recipes/mansaf.jpg",
+                category: "الأكلات السعودية",
+                time: "150 دقيقة",
+                icon: "fas fa-utensils",
+                description: "طبق جنوبي شهير يقدم مع لبن الجميد والأرز."
+            },
+            {
+                id: 21,
+                name: "القرصان",
+                image: "images/recipes/qursan.jpg",
+                category: "الأكلات السعودية",
+                time: "90 دقيقة",
+                icon: "fas fa-utensils",
+                description: "خبز القرصان المفتت مع مرق اللحم أو الدجاج."
+            },
+            {
+                id: 22,
+                name: "مثلوثة",
+                image: "images/recipes/mathlootha.jpg",
+                category: "الأكلات السعودية",
+                time: "100 دقيقة",
+                icon: "fas fa-utensils",
+                description: "طبق يجمع بين اللحم والخضروات مع الأرز أو العجين."
+            },
+            {
+                id: 23,
+                name: "الصبة",
+                image: "images/recipes/sabba.jpg",
+                category: "الأكلات السعودية",
+                time: "110 دقيقة",
+                icon: "fas fa-utensils",
+                description: "طبق غربي تقليدي من الدجاج والخضروات."
+            },
+            {
+                id: 24,
+                name: "الرقش",
+                image: "images/recipes/raqsh.jpg",
+                category: "الأكلات السعودية",
+                time: "80 دقيقة",
+                icon: "fas fa-utensils",
+                description: "عجين مقلي محشو باللحم أو الخضروات."
+            },
+            {
+                id: 25,
+                name: "قطايف",
+                image: "images/recipes/qatayef.jpg",
+                category: "الحلويات",
+                time: "60 دقيقة",
+                icon: "fas fa-cookie",
+                description: "فطائر محشوة تقدم في رمضان إما بالقشطة أو الجوز."
+            },
+            {
+                id: 26,
+                name: "حلى الجبن",
+                image: "images/recipes/cheese-dessert.jpg",
+                category: "الحلويات",
+                time: "40 دقيقة",
+                icon: "fas fa-cookie",
+                description: "حلوى خفيفة من الجبن والكريمة."
+            },
+            {
+                id: 27,
+                name: "ساشيمي",
+                image: "images/recipes/sashimi.jpg",
+                category: "الأكلات الآسيوية",
+                time: "20 دقيقة",
+                icon: "fas fa-fish",
+                description: "شرائح سمك نيئة تقدم مع صلصة الصويا والوسابي."
+            },
+            {
+                id: 28,
+                name: "تندوري",
+                image: "images/recipes/tandoori.jpg",
+                category: "الأكلات الآسيوية",
+                time: "90 دقيقة",
+                icon: "fas fa-drumstick-bite",
+                description: "دجاج متبل بالبهارات ويشوى في الفرن."
+            },
+            {
+                id: 29,
+                name: "فادا باو",
+                image: "images/recipes/vada-pav.jpg",
+                category: "الأكلات الآسيوية",
+                time: "50 دقيقة",
+                icon: "fas fa-bread-slice",
+                description: "سندويشات هندية من البطاطس المقلية."
+            },
+            {
+                id: 30,
+                name: "سبرينج رول",
+                image: "images/recipes/spring-roll.jpg",
+                category: "الأكلات الآسيوية",
+                time: "35 دقيقة",
+                icon: "fas fa-egg",
+                description: "لفائف رقيقة محشوة بالخضار واللحم."
+            }
+        ];
+    </script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93ba11c73c4fd1b6',t:'MTc0NjU1MTE5OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>
