@@ -39,7 +39,7 @@
                 <!-- وصفة 1 -->
                 <div class="recipe-card">
                     <img src="https://www.maggiarabia.com/sites/default/files/styles/srh_recipes/public/srh_recipes/d791f1fe6db43b115f964d133e890d3a.png?h=4f5b30f1&itok=TAeSYG2q" alt="كبسة دجاج">
-                    <button class="favorite-btn" data-id="1"><i class="far fa-heart"></i></button>
+                    <button class="favorite-btn" data-id="1001"><i class="far fa-heart"></i></button>
                     <h3>كبسة دجاج</h3>
                     <div class="recipe-meta">
                         <span><i class="fas fa-utensils"></i> الأكلات السعودية</span>
@@ -60,7 +60,7 @@
                 <!-- وصفة 2 -->
                 <div class="recipe-card">
                     <img src="https://img.youm7.com/ArticleImgs/2020/11/20/90023-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%AC%D8%A7.jpg" alt="الكليجا">
-                    <button class="favorite-btn" data-id="2"><i class="far fa-heart"></i></button>
+                    <button class="favorite-btn" data-id="1002"><i class="far fa-heart"></i></button>
                     <h3>الكليجا</h3>
                     <div class="recipe-meta">
                         <span><i class="fas fa-cookie"></i> الحلويات</span>
@@ -81,7 +81,7 @@
                 <!-- وصفة 3 -->
                 <div class="recipe-card">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHyhB_XzlCfcOiKLz66X56BdWgbWEoGHC2dA&s" alt="مندي لحم">
-                    <button class="favorite-btn" data-id="3"><i class="far fa-heart"></i></button>
+                    <button class="favorite-btn" data-id="1003"><i class="far fa-heart"></i></button>
                     <h3>مندي لحم</h3>
                     <div class="recipe-meta">
                         <span><i class="fas fa-utensils"></i> الأكلات السعودية</span>
@@ -102,7 +102,7 @@
                 <!-- وصفة 4 -->
                 <div class="recipe-card">
                     <img src="https://rizpresto.ma/wp-content/uploads/2024/12/types-of-sushi-1024x675.jpg" alt="سوشي">
-                    <button class="favorite-btn" data-id="4"><i class="far fa-heart"></i></button>
+                    <button class="favorite-btn" data-id="1004"><i class="far fa-heart"></i></button>
                     <h3>سوشي</h3>
                     <div class="recipe-meta">
                         <span><i class="fas fa-fish"></i> الأكلات الآسيوية</span>
@@ -253,60 +253,59 @@
     <script>
         // مصفوفة الوصفات الإضافية
         const moreRecipes = [
-            // وصفات سعودية إضافية
             {
-                id: 1005,
-                name: "المطازيز",
-                image: "https://upload.wikimedia.org/wikipedia/commons/9/94/1%D9%85%D8%B7%D8%A7%D8%B2%D9%8A%D8%B2.jpg",
-                category: "الأكلات السعودية",
-                time: "120 دقيقة",
-                icon: "fas fa-utensils",
-                description: "طبق تقليدي من العجين المطبوخ مع اللحم والخضروات في مرق غني."
-            },
-            {
-                id: 1006,
-                name: "المنسف",
-                image: "https://upload.wikimedia.org/wikipedia/commons/5/51/Mansaf1_cropped.jpg",
+                id: 19,
+                name: "مرق الضأن",
+                image: "images/recipes/lamb-stew.jpg",
                 category: "الأكلات السعودية",
                 time: "150 دقيقة",
                 icon: "fas fa-utensils",
-                description: "طبق جنوبي شهير يقدم مع لبن الجميد والأرز."
+                description: "طبق تقليدي من مرق الضأن مع الخضار والبهارات السعودية الخاصة."
             },
             {
-                id: 1007,
-                name: "القرصان",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Tharid..JPG/800px-Tharid..JPG",
+                id: 20,
+                name: "شعيرية بالدجاج",
+                image: "images/recipes/chicken-noodles.jpg",
                 category: "الأكلات السعودية",
-                time: "90 دقيقة",
+                time: "60 دقيقة",
                 icon: "fas fa-utensils",
-                description: "خبز القرصان المفتت مع مرق اللحم أو الدجاج."
+                description: "شعيرية مطبوخة مع مرق الدجاج والبهارات العطرية."
             },
             {
-                id: 1008,
-                name: "مثلوثة",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/White%2C_Brown%2C_Red_%26_Wild_rice.jpg/800px-White%2C_Brown%2C_Red_%26_Wild_rice.jpg",
+                id: 21,
+                name: "مفطح",
+                image: "images/recipes/moftah.jpg",
                 category: "الأكلات السعودية",
-                time: "100 دقيقة",
+                time: "180 دقيقة",
                 icon: "fas fa-utensils",
-                description: "طبق يجمع بين اللحم والخضروات مع الأرز أو العجين."
+                description: "لحم ضأن مطبوخ بطريقة خاصة مع الأرز والخضار."
             },
             {
-                id: 1009,
-                name: "الصبة",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Sabbah3.JPG/1024px-Sabbah3.JPG",
+                id: 22,
+                name: "سليق",
+                image: "images/recipes/saleeg.jpg",
                 category: "الأكلات السعودية",
-                time: "110 دقيقة",
+                time: "120 دقيقة",
                 icon: "fas fa-utensils",
-                description: "طبق غربي تقليدي من الدجاج والخضروات."
+                description: "أرز أبيض كريمي يقدم مع مر в الدجاج واللحم."
             },
             {
-                id: 1010,
-                name: "الرقش",
-                image: "https://upload.wikimedia.org/wikipedia/ar/0/06/%D8%B1%D9%82%D8%B4.jpg",
-                category: "الأكلات السعودية",
-                time: "80 دقيقة",
-                icon: "fas fa-utensils",
-                description: "عجين مقلي محشو باللحم أو الخضروات."
+                id: 23,
+                name: "مهلبية",
+                image: "images/recipes/muhalabia.jpg",
+                category: "الحلويات",
+                time: "30 دقيقة",
+                icon: "fas fa-cookie",
+                description: "حلوى كريمية من الحليب والنشا وماء الورد."
+            },
+            {
+                id: 24,
+                name: "بسبوسة",
+                image: "images/recipes/basbousa.jpg",
+                category: "الحلويات",
+                time: "45 دقيقة",
+                icon: "fas fa-cookie",
+                description: "كعكة سميد خفيفة منقوعة في شراب السكر."
             },
             {
                 id: 25,
@@ -363,7 +362,64 @@
                 description: "لفائف رقيقة محشوة بالخضار واللحم."
             }
         ];
+        
+        // وظيفة البحث
+        document.querySelector('.search-bar button').addEventListener('click', function() {
+            const query = document.querySelector('.search-bar input').value.toLowerCase();
+            const recipeCards = document.querySelectorAll('.recipe-card');
+            
+            recipeCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                if (title.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // تحميل المزيد من الوصفات
+        const loadMoreBtn = document.createElement('button');
+        loadMoreBtn.textContent = 'تحميل المزيد';
+        loadMoreBtn.className = 'load-more-btn';
+        document.querySelector('.content').appendChild(loadMoreBtn);
+
+        let currentRecipes = 0;
+        const recipesPerLoad = 4;
+
+        function loadRecipes() {
+            const recipesGrid = document.querySelector('.recipes-grid');
+            const nextRecipes = moreRecipes.slice(currentRecipes, currentRecipes + recipesPerLoad);
+
+            nextRecipes.forEach(recipe => {
+                const recipeCard = document.createElement('div');
+                recipeCard.className = 'recipe-card';
+                recipeCard.innerHTML = `
+                    <img src="${recipe.image}" alt="${recipe.name}">
+                    <button class="favorite-btn" data-id="${recipe.id}"><i class="far fa-heart"></i></button>
+                    <h3>${recipe.name}</h3>
+                    <div class="recipe-meta">
+                        <span><i class="${recipe.icon}"></i> ${recipe.category}</span>
+                        <span><i class="fas fa-clock"></i> ${recipe.time}</span>
+                    </div>
+                    <p>${recipe.description}</p>
+                `;
+                recipesGrid.appendChild(recipeCard);
+            });
+
+            currentRecipes += recipesPerLoad;
+
+            if (currentRecipes >= moreRecipes.length) {
+                loadMoreBtn.style.display = 'none';
+            }
+        }
+
+        loadMoreBtn.addEventListener('click', loadRecipes);
+
+        // تحميل الوصفات الأولية
+        loadRecipes();
     </script>
     <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93ba11c73c4fd1b6',t:'MTc0NjU1MTE5OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93bac1d70914453f',t:'MTc0NjU1ODQxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
