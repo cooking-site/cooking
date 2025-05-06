@@ -1,130 +1,102 @@
-/* الألوان الأساسية */
-:root {
-    --primary-color: #8B4513; /* بني */
-    --secondary-color: #F5F5DC; /* بيج */
-    --accent-color: #FF6B6B; /* أحمر */
-    --text-color: #333;
-    --light-text: #777;
-}
-
-/* التنسيق العام */
-* {
+body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-body {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-    direction: rtl;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
 header {
-    background-color: var(--primary-color);
+    background-color: #E74C3C;
     color: white;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .logo-container {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .logo {
     width: 50px;
     height: 50px;
-    margin-left: 15px;
+    background: url('https://via.placeholder.com/50') no-repeat center;
+    background-size: cover;
+    margin-left: 10px;
 }
 
-.search-bar {
-    display: flex;
-    width: 40%;
-}
-
-.search-bar input {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 20px 0 0 20px;
-    width: 100%;
-}
-
-.search-bar button {
-    padding: 0.5rem 1rem;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    border: none;
-    border-radius: 0 20px 20px 0;
-    cursor: pointer;
+h1 {
+    margin: 0;
+    font-size: 24px;
 }
 
 .container {
     display: flex;
-    min-height: calc(100vh - 82px);
+    max-width: 1200px;
+    margin: 20px auto;
+    gap: 20px;
 }
 
 .sidebar {
     width: 250px;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1.5rem 1rem;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .categories {
     list-style: none;
+    padding: 0;
 }
 
 .categories li {
-    margin-bottom: 1rem;
+    margin: 10px 0;
 }
 
 .categories a {
-    color: white;
     text-decoration: none;
-    display: block;
-    padding: 0.5rem;
+    color: #333;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
     border-radius: 5px;
-    transition: all 0.3s;
+    transition: background-color 0.3s;
 }
 
-.categories a:hover, .categories a.active {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
+.categories a:hover,
+.categories a.active {
+    background-color: #E74C3C;
+    color: white;
 }
 
 .categories i {
-    margin-left: 8px;
+    margin-left: 10px;
 }
 
 .content {
     flex: 1;
-    padding: 2rem;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--primary-color);
-}
-
-.recipes-grid {
+.recipe-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 2rem;
+    gap: 20px;
 }
 
 .recipe-card {
-    background-color: white;
+    background-color: #fff;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
 
@@ -134,173 +106,110 @@ h2 {
 
 .recipe-card img {
     width: 100%;
-    height: 180px;
+    height: 150px;
     object-fit: cover;
 }
 
 .recipe-card h3 {
-    padding: 0.8rem 1rem 0;
-    color: var(--primary-color);
+    margin: 10px;
+    font-size: 18px;
+    color: #333;
 }
 
-.recipe-meta {
-    padding: 0.5rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    color: var(--light-text);
+.recipe-card p {
+    margin: 5px 10px;
+    color: #666;
+    font-size: 14px;
 }
 
-.recipe-meta i {
+.recipe-card p i {
     margin-left: 5px;
 }
 
-.view-recipe {
-    display: block;
-    width: 90%;
-    margin: 0.8rem auto;
-    padding: 0.5rem;
-    background-color: var(--primary-color);
-    color: white;
+.favorite-btn,
+.asian-favorite-btn {
+    background: none;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.view-recipe:hover {
-    background-color: #6B3A0E;
-}
-
-.favorite-btn {
     position: absolute;
     top: 10px;
     left: 10px;
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 20px;
     cursor: pointer;
-    color: var(--light-text);
-    transition: all 0.3s;
+    color: #E74C3C;
 }
 
-.favorite-btn:hover, .favorite-btn.favorited {
-    color: var(--accent-color);
+.favorite-btn.active i,
+.asian-favorite-btn.active i {
+    color: #E74C3C;
 }
 
-/* صفحة الوصفة المفصلة */
-.recipe-header {
-    display: flex;
-    margin-bottom: 2rem;
-    gap: 2rem;
+.recipe-card button {
+    width: 100%;
+    padding: 10px;
+    background-color: #E74C3C;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 0 0 8px 8px;
 }
 
-.recipe-image {
-    flex: 1;
+.recipe-card button:hover {
+    background-color: #c0392b;
+}
+
+/* New styles for favorite recipes in best.html */
+.favorites-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.favorite-recipe {
+    background-color: #fff;
     border-radius: 8px;
     overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 
-.recipe-image img {
+.favorite-recipe:hover {
+    transform: translateY(-5px);
+}
+
+.favorite-recipe img {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 150px;
+    object-fit: cover;
 }
 
-.recipe-info {
-    flex: 1;
+.favorite-recipe h3 {
+    margin: 10px;
+    font-size: 18px;
+    color: #333;
 }
 
-.recipe-title {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+.favorite-recipe p {
+    margin: 5px 10px;
+    color: #666;
+    font-size: 14px;
 }
 
-.recipe-description {
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+.favorite-recipe p i {
+    margin-left: 5px;
 }
 
-.recipe-details {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 1.5rem;
+.favorite-recipe button {
+    width: 100%;
+    padding: 10px;
+    background-color: #E74C3C;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 0 0 8px 8px;
 }
 
-.detail-item {
-    display: flex;
-    align-items: center;
-}
-
-.detail-item i {
-    margin-left: 8px;
-    color: var(--primary-color);
-}
-.ingredients, .instructions {
-    margin-bottom: 2rem;
-}
-
-.section-title {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--primary-color);
-}
-
-.ingredients-list, .instructions-list {
-    list-style-position: inside;
-    line-height: 1.8;
-}
-
-/* صفحة المفضلة */
-.favorites-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.5rem;
-}
-
-/* التصميم للجوال */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 1rem;
-    }
-    
-    .logo-container {
-        margin-bottom: 1rem;
-    }
-    
-    .search-bar {
-        width: 100%;
-    }
-    
-    .container {
-        flex-direction: column;
-    }
-    
-    .sidebar {
-        width: 100%;
-        padding: 1rem;
-    }
-    
-    .categories {
-        display: flex;
-        overflow-x: auto;
-        padding-bottom: 0.5rem;
-    }
-    
-    .categories li {
-        margin-bottom: 0;
-        margin-left: 1rem;
-        white-space: nowrap;
-    }
-    
-    .recipe-header {
-        flex-direction: column;
-    }
+.favorite-recipe button:hover {
+    background-color: #c0392b;
 }
