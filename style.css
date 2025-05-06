@@ -1,338 +1,314 @@
+/* styles.css - الإصدار النهائي */
+
 /* الألوان الأساسية */
 :root {
-    --primary-color: #8B4513; /* بني */
-    --secondary-color: #F5F5DC; /* بيج */
-    --accent-color: #FF6B6B; /* أحمر */
-    --text-color: #333;
-    --light-text: #777;
+  --primary-color: #8B4513; /* بني داكن */
+  --secondary-color: #F5F5DC; /* بيج */
+  --accent-color: #E74C3C; /* أحمر */
+  --text-color: #333;
+  --light-text: #777;
+  --border-color: #e0e0e0;
 }
 
 /* التنسيق العام */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
 
 body {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-    direction: rtl;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  direction: rtl;
 }
 
+/* الهيدر */
 header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-    width: 50px;
-    height: 50px;
-    margin-left: 15px;
+  width: 50px;
+  height: 50px;
+  margin-left: 15px;
 }
 
 .search-bar {
-    display: flex;
-    width: 40%;
+  display: flex;
+  width: 40%;
 }
 
 .search-bar input {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 20px 0 0 20px;
-    width: 100%;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  width: 100%;
 }
 
 .search-bar button {
-    padding: 0.5rem 1rem;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    border: none;
-    border-radius: 0 20px 20px 0;
-    cursor: pointer;
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
 }
 
+/* الهيكل الرئيسي */
 .container {
-    display: flex;
-    min-height: calc(100vh - 82px);
+  display: flex;
+  min-height: calc(100vh - 82px);
 }
 
 .sidebar {
-    width: 250px;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1.5rem 1rem;
+  width: 250px;
+  background-color: var(--primary-color);
+  padding: 1.5rem 1rem;
 }
 
 .categories {
-    list-style: none;
+  list-style: none;
 }
 
 .categories li {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .categories a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    padding: 0.5rem;
-    border-radius: 5px;
-    transition: all 0.3s;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s;
 }
 
-.categories a:hover, .categories a.active {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
+.categories a:hover, 
+.categories a.active {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 .categories i {
-    margin-left: 8px;
+  margin-left: 8px;
 }
 
 .content {
-    flex: 1;
-    padding: 2rem;
+  flex: 1;
+  padding: 2rem;
 }
 
 h2 {
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary-color);
+  display: flex;
+  align-items: center;
 }
 
+h2 i {
+  margin-left: 10px;
+}
+
+/* بطاقات الوصفات العامة */
 .recipes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
 .recipe-card {
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    position: relative;
-    transition: transform 0.3s;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  position: relative;
 }
 
 .recipe-card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-.recipe-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+.recipe-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
-.recipe-card h3 {
-    padding: 0.8rem 1rem 0;
-    color: var(--primary-color);
-}
-
-.recipe-meta {
-    padding: 0.5rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    color: var(--light-text);
-}
-
-.recipe-meta i {
-    margin-left: 5px;
-}
-
-.recipe-ingredients {
-    padding: 0.8rem 1rem;
-    font-size: 0.9rem;
-    color: var(--text-color);
-}
-
-.recipe-ingredients h4 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-.ingredients-list {
-    list-style: disc;
-    list-style-position: inside;
-    line-height: 1.6;
-}
-
-.favorite-btn {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: var(--light-text);
-    transition: all 0.3s;
-}
-
-.favorite-btn:hover, .favorite-btn.favorited {
-    color: var(--accent-color);
-}
-
-/* صفحة الوصفة المفصلة */
-.recipe-header {
-    display: flex;
-    margin-bottom: 2rem;
-    gap: 2rem;
-}
-
-.recipe-image {
-    flex: 1;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.recipe-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.recipe-info {
-    flex: 1;
+.recipe-content {
+  padding: 1.5rem;
 }
 
 .recipe-title {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
 }
 
-.recipe-description {
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+.recipe-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
 }
 
-.recipe-details {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 1.5rem;
+.recipe-meta span {
+  display: flex;
+  align-items: center;
 }
 
-.detail-item {
-    display: flex;
-    align-items: center;
+.recipe-meta i {
+  margin-left: 5px;
 }
 
-.detail-item i {
-    margin-left: 8px;
-    color: var(--primary-color);
+.recipe-ingredients {
+  padding: 0.8rem 0;
 }
 
-.ingredients, .instructions {
-    margin-bottom: 2rem;
+.recipe-ingredients h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
 }
 
-.section-title {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--primary-color);
+.ingredients-list {
+  list-style: disc inside;
+  line-height: 1.6;
+  color: var(--text-color);
 }
 
-.ingredients-list, .instructions-list {
-    list-style-position: inside;
-    line-height: 1.8;
+/* أزرار المفضلة */
+.favorite-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--light-text);
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.1);
+}
+
+.favorite-btn.favorited {
+  color: var(--accent-color);
 }
 
 /* صفحة المفضلة */
-.favorites-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.5rem;
+.favorites-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.favorite-card {
+  position: relative;
+}
+
+.favorite-card .recipe-ingredients {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+/* رسالة عدم وجود وصفات */
+.empty-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  color: var(--primary-color);
+}
+
+.empty-message i {
+  font-size: 3rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.empty-message p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
 }
 
 /* التصميم للجوال */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 1rem;
-    }
-    
-    .logo-container {
-        margin-bottom: 1rem;
-    }
-    
-    .search-bar {
-        width: 100%;
-    }
-    
-    .container {
-        flex-direction: column;
-    }
-    
-    .sidebar {
-        width: 100%;
-        padding: 1rem;
-    }
-    
-    .categories {
-        display: flex;
-        overflow-x: auto;
-        padding-bottom: 0.5rem;
-    }
-    
-    .categories li {
-        margin-bottom: 0;
-        margin-left: 1rem;
-        white-space: nowrap;
-    }
-    
-    .recipe-header {
-        flex-direction: column;
-    }
-}
-/* أنماط صفحة المفضلة */
-.view-btn {
-    background-color: #8B4513;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 1rem;
+  header {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .logo-container {
+    margin-bottom: 1rem;
+  }
+  
+  .search-bar {
     width: 100%;
-    transition: background-color 0.3s;
+  }
+  
+  .container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .categories {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  .categories li {
+    margin-bottom: 0;
+    margin-left: 1rem;
+    white-space: nowrap;
+  }
+  
+  .content {
+    padding: 1rem;
+  }
+  
+  .recipes-grid,
+  .favorites-container {
+    grid-template-columns: 1fr;
+  }
 }
 
-.view-btn:hover {
-    background-color: #5A2D0C;
+/* تأثيرات الحركة */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.empty-message {
-    text-align: center;
-    padding: 2rem;
-    grid-column: 1 / -1;
-    color: #5A2D0C;
-}
-
-.empty-message p {
-    margin: 0.5rem 0;
-}
-
-.favorite-btn.favorited {
-    color: #E74C3C !important;
+.recipe-card {
+  animation: fadeIn 0.5s ease-out forwards;
 }
