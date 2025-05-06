@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // Toggle favorite status
 function toggleFavorite(recipeId) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    recipeId = parseInt(recipeId);
+    
     if (favorites.includes(recipeId)) {
         favorites = favorites.filter(id => id !== recipeId);
     } else {
@@ -93,6 +95,6 @@ function removeFromFavorites(recipeId) {
     updateFavoriteButtons();
     // Re-render favorites if on favorites page
     if (document.getElementById('favoritesList')) {
-        renderFavoriteRecipes(allRecipes); // Assuming allRecipes is defined in best.html
+        renderFavoriteRecipes(allRecipes);
     }
 }
