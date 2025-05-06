@@ -1,7 +1,8 @@
-// إدارة المفضلة - الإصدار النهائي
+// إدارة المفضلة - الإصدار النهائي المؤكد
 document.addEventListener('DOMContentLoaded', function() {
-    initializeFavorites();
-    setupEventListeners();
+    initFavorites();
+    setupNavigation();
+    updateFavoriteButtons();
     
     if (isFavoritesPage()) {
         renderFavoriteRecipes();
@@ -9,17 +10,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // تهيئة المفضلة
-function initializeFavorites() {
+function initFavorites() {
     if (!localStorage.getItem('favorites')) {
         localStorage.setItem('favorites', JSON.stringify([]));
     }
 }
 
-// إعداد مستمعي الأحداث
-function setupEventListeners() {
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.favorite-btn, .asian-favorite-btn')) {
-            handleFavoriteClick(e.target.closest('.favorite-btn, .asian-favorite-btn'));
+// إعداد التنقل
+function setupNavigation() {
+    // تحديث القائمة الجانبية النشطة
+    document.querySelectorAll('.categories a').forEach(link => {
+        if (link.getAttribute('href') === window.location.pathname) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
         }
     });
 }
@@ -27,6 +31,8 @@ function setupEventListeners() {
 // التعامل مع النقر على زر المفضلة
 function handleFavoriteClick(button) {
     const recipeId = parseInt(button.getAttribute('data-id'));
+    if (isNaN(recipeId)) return;
+    
     toggleFavorite(recipeId);
     updateButtonState(button, recipeId);
     
@@ -49,13 +55,6 @@ function toggleFavorite(recipeId) {
     saveFavorites(favorites);
 }
 
-// تحديث حالة الزر
-function updateButtonState(button, recipeId) {
-    const isFavorited = getFavorites().includes(recipeId);
-    button.classList.toggle('favorited', isFavorited);
-    button.innerHTML = isFavorited ? '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>';
-}
-
 // عرض الوصفات المفضلة
 function renderFavoriteRecipes() {
     const container = document.getElementById('favoritesList');
@@ -64,13 +63,12 @@ function renderFavoriteRecipes() {
     const favorites = getFavorites();
     const recipes = window.allRecipes || [];
     
-    container.innerHTML = favorites.length ? '' : `
-        <div class="empty-message">
-            <i class="fas fa-heart-broken"></i>
-            <p>لا توجد وصفات في المفضلة</p>
-            <p>اضغط على ♡ لإضافة وصفات</p>
-        </div>
-    `;
+    container.innerHTML = '';
+    
+    if (favorites.length === 0) {
+        container.innerHTML = createEmptyMessage();
+        return;
+    }
     
     favorites.forEach(id => {
         const recipe = recipes.find(r => r.id === id);
@@ -85,7 +83,7 @@ function createRecipeCard(recipe) {
     const card = document.createElement('div');
     card.className = 'recipe-card favorite-card';
     card.innerHTML = `
-        <img src="${recipe.image}" alt="${recipe.name}">
+        <img src="${recipe.image}" alt="${recipe.name}" class="recipe-img">
         <button class="favorite-btn favorited" data-id="${recipe.id}">
             <i class="fas fa-heart"></i>
         </button>
@@ -102,7 +100,6 @@ function createRecipeCard(recipe) {
                     <li>لحوم/أسماك/خضروات</li>
                     <li>بهارات متعددة</li>
                     <li>صلصات</li>
-                    <li>زيوت/سمن</li>
                 </ul>
             </div>
         </div>
@@ -122,3 +119,18 @@ function saveFavorites(favorites) {
 function isFavoritesPage() {
     return window.location.pathname.includes('best.html');
 }
+
+function createEmptyMessage() {
+    return `
+        <div class="empty-message">
+            <i class="fas fa-heart-broken"></i>
+            <p>لا توجد وصفات في المفضلة</p>
+            <p>اضغط على ♡ لإضافة وصفات</p>
+        </div>
+    `;
+}
+
+// تصدير الوظائف للاستخدام العام
+window.toggleFavorite = toggleFavorite;
+window.handleFavoriteClick = handleFavoriteClick;
+window.renderFavoriteRecipes = renderFavoriteRecipes;
