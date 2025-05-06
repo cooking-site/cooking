@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة السوشي</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            direction: rtl;
+            background-color: #e6f3e6;
+        }
+
+        header {
+            background-color: #2e8b57;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .sushi-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .description, .ingredients {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #2e8b57;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #2e8b57;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                margin: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>السوشي: فن الطعام الياباني</h1>
+        <p>استمتع بنكهة السوشي الطازجة والممزوجة بالإبداع!</p>
+    </header>
+
+    <div class="container">
+        <img src="https://via.placeholder.com/1200x400?text=صورة+السوشي" alt="صورة سوشي" class="sushi-image">
+        
+        <div class="description">
+            <h2>ما هو السوشي؟</h2>
+            <p>السوشي هو طبق ياباني تقليدي يتكون من الأرز المتبل بالخل مع مجموعة متنوعة من المكونات مثل الأسماك النيئة أو المطبوخة، الخضروات، وأعشاب البحر. يُقدم عادةً مع صويا صوص، الواسابي، والزنجبيل المخلل.</p>
+        </div>
+
+        <div class="ingredients">
+            <h2>المكونات</h2>
+            <ul>
+                <li>أرز السوشي</li>
+                <li>سمك (سلمون، تونة) أو مأكولات بحرية</li>
+                <li>خل الأرز</li>
+                <li>أعشاب بحرية (نوري)</li>
+                <li>خضروات (خيار، أفوكادو)</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2025 - صفحة السوشي</p>
+    </footer>
+</body>
+</html>
