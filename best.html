@@ -275,6 +275,61 @@
                 time: "45 دقيقة",
                 icon: "fas fa-fish",
                 ingredients: ["أرز السوشي", "سمك السلمون", "أعشاب بحرية", "خل الأرز", "صوص الصويا"]
+            },
+            // Additional recipes from index.html
+            {
+                id: 1005,
+                name: "المطازيز",
+                image: "https://upload.wikimedia.org/wikipedia/commons/9/94/1%D9%85%D8%B7%D8%A7%D8%B2%D9%8A%D8%B2.jpg",
+                category: "الأكلات السعودية",
+                time: "120 دقيقة",
+                icon: "fas fa-utensils",
+                ingredients: ["لحم ضأن", "دقيق القمح", "طماطم مهروسة", "لومي", "بهارات مطازيز"]
+            },
+            {
+                id: 1006,
+                name: "المنسف",
+                image: "https://www.unileverfoodsolutions.com.sa/dam/global-ufs/mcos/mena/arabia/calcmenu/recipes/sa-recipes/lamb-&-veal/%D8%A7%D9%84%D9%85%D9%86%D8%B3%D9%81-%D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%86%D9%8A/main-header.jpg",
+                category: "الأكلات الأردنية",
+                time: "150 دقيقة",
+                icon: "fas fa-utensils",
+                ingredients: ["لحم ضأن", "أرز", "لبن جميد", "صنوبر", "خبز شراك"]
+            },
+            {
+                id: 1007,
+                name: "المقلوبة",
+                image: "https://www.atyabtabkha.com/tachribat/files/2018/09/1-2.jpg",
+                category: "الأكلات الفلسطينية",
+                time: "90 دقيقة",
+                icon: "fas fa-utensils",
+                ingredients: ["دجاج", "أرز بسمتي", "باذنجان", "بهارات مقلوبة", "زيت"]
+            },
+            {
+                id: 1008,
+                name: "ورق العنب",
+                image: "https://www.justfood.tv/nawa3em/userimages/stuffed_grape_leaves_with_meat.jpg",
+                category: "الأكلات الشامية",
+                time: "120 دقيقة",
+                icon: "fas fa-utensils",
+                ingredients: ["ورق عنب", "أرز", "لحم مفروم", "طماطم", "زيت زيتون"]
+            },
+            {
+                id: 1009,
+                name: "الكشري",
+                image: "https://www.justfood.tv/nawa3em/userimages/egyptian_koshari.jpg",
+                category: "الأكلات المصرية",
+                time: "60 دقيقة",
+                icon: "fas fa-utensils",
+                ingredients: ["عدس بني", "أرز", "معكرونة", "صلصة طماطم", "بصل مقلي"]
+            },
+            {
+                id: 1010,
+                name: "الشاورما",
+                image: "https://www.atyabtabkha.com/tachribat/files/2020/09/%D8%B7%D8%B1%D9%8A%D9%82%D8%A9-%D8%B9%D9%85%D9%84-%D8%B4%D8%A7%D9%88%D8%B1%D9%85%D8%A7-%D8%A7%D9%84%D8%AF%D8%AC%D8%A7%D8%AC-%D8%A7%D9%84%D8%B3%D9%88%D8%B1%D9%8A%D8%A9.jpg",
+                category: "الأكلات الشامية",
+                time: "45 دقيقة",
+                icon: "fas fa-utensils",
+                ingredients: ["دجاج", "خبز عربي", "ثومية", "بهارات شاورما", "خضروات"]
             }
         ];
 
@@ -284,6 +339,8 @@
             const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
             favoritesList.innerHTML = '';
 
+            console.log('Favorites:', favorites); // Debugging: Check favorites array
+
             if (favorites.length === 0) {
                 favoritesList.innerHTML = '<p style="color: var(--text-color); text-align: center;">لم تتم إضافة وصفات إلى المفضلة بعد.</p>';
                 return;
@@ -292,6 +349,7 @@
             favorites.forEach(id => {
                 const recipe = allRecipes.find(r => r.id === id);
                 if (recipe) {
+                    console.log('Rendering recipe:', recipe); // Debugging: Check each rendered recipe
                     const recipeCard = document.createElement('div');
                     recipeCard.className = 'recipe-card';
                     recipeCard.innerHTML = `
@@ -311,6 +369,8 @@
                         <button class="view-recipe-btn" data-id="${recipe.id}">عرض الوصفة</button>
                     `;
                     favoritesList.appendChild(recipeCard);
+                } else {
+                    console.warn(`Recipe with ID ${id} not found in allRecipes`); // Debugging: Warn if recipe not found
                 }
             });
 
@@ -318,6 +378,7 @@
             document.querySelectorAll('.favorite-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const recipeId = parseInt(this.getAttribute('data-id'));
+                    console.log('Toggling favorite for recipe ID:', recipeId); // Debugging: Check toggle action
                     toggleFavorite(recipeId); // From favorites.js
                     renderFavoriteRecipes(); // Re-render after change
                 });
@@ -327,6 +388,7 @@
             document.querySelectorAll('.view-recipe-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const recipeId = parseInt(this.getAttribute('data-id'));
+                    console.log('Viewing recipe ID:', recipeId); // Debugging: Check view action
                     viewRecipe(recipeId);
                 });
             });
