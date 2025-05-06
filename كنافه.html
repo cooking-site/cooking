@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة الكنافة</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            direction: rtl;
+            background-color: #fff5e6;
+        }
+
+        header {
+            background-color: #d4a373;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .kunafa-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .description, .ingredients {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #d4a373;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #d4a373;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                margin: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>الكنافة: الحلوى الشرقية الأصيلة</h1>
+        <p>استمتع بمذاق الكنافة الطازجة المحضرة بحب!</p>
+    </header>
+
+    <div class="container">
+        <img src="https://via.placeholder.com/1200x400?text=صورة+الكنافة" alt="صورة كنافة" class="kunafa-image">
+        
+        <div class="description">
+            <h2>ما هي الكنافة؟</h2>
+            <p>الكنافة هي واحدة من أشهر الحلويات الشرقية، تتكون من طبقات من عجينة الكنافة المقرمشة المحشوة بالجبن أو القشطة، وتُغمر بالشربات الحلو. تُقدم ساخنة لتستمتع بمذاقها الفريد!</p>
+        </div>
+
+        <div class="ingredients">
+            <h2>المكونات</h2>
+            <ul>
+                <li>عجينة كنافة</li>
+                <li>جبن عكاوي أو قشطة</li>
+                <li>سمن طبيعي</li>
+                <li>شربات (سكر، ماء، عصير ليمون)</li>
+                <li>فستق للتزيين</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2025 - صفحة الكنافة</p>
+    </footer>
+</body>
+</html>
