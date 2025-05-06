@@ -37,7 +37,7 @@
     </div>
 
     <script>
-        // Combined recipes from all pages
+        // Combined recipes from all pages with unique IDs
         const allRecipes = [
             // From asian.html
             {
@@ -71,14 +71,14 @@
             {
                 id: 5,
                 name: "تيكا ماسالا",
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ9QZERmsLk5ldbuB5mCXUebr3oZweK1abLNtioIKzlU5QIT1mqQFzr0aElKtEyN_i7XRomB1O4jwTRtu1wE43JrKdEZUd_FsnIkA8od8",
+                image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 category: "هندية",
                 time: "80 دقيقة"
             },
             {
                 id: 6,
                 name: "ساشيمي",
-                image: "https://post.healthline.com/wp-content/uploads/2021/09/sushi-sashimi-1296x728-header.jpg",
+                image: "https://images.unsplash.com/photo-1580211688371-456b2786b637?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 category: "يابانية",
                 time: "20 دقيقة"
             },
@@ -113,7 +113,6 @@
             // From sweet.html
             {
                 id: 101,
-                name: "البقلاو ob_start();
                 name: "البقلاوة",
                 image: "https://kitchen.sayidaty.net/uploads/small/23/236a178eb13f0f31493572616d95d3af_w750_h500.jpg",
                 category: "حلويات شرقية",
@@ -122,7 +121,7 @@
             {
                 id: 102,
                 name: "الكنافة",
-                image: "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26",
+                image: "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 category: "حلويات شرقية",
                 time: "45 دقيقة"
             },
@@ -150,14 +149,14 @@
             {
                 id: 106,
                 name: "تشيز كيك",
-                image: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d",
+                image: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 category: "حلويات غربية",
                 time: "180 دقيقة"
             },
             {
                 id: 107,
                 name: "كيك الشوكولاتة",
-                image: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d",
+                image: "https://images.unsplash.com/photo-1606890737648-81767e598bb9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 category: "حلويات غربية",
                 time: "90 دقيقة"
             },
@@ -184,93 +183,38 @@
             },
             // From index.html
             {
-                id: 19,
-                name: "مرق الضأن",
-                image: "images/recipes/lamb-stew.jpg",
-                category: "الأكلات السعودية",
-                time: "150 دقيقة"
-            },
-            {
-                id: 20,
-                name: "شعيرية بالدجاج",
-                image: "images/recipes/chicken-noodles.jpg",
+                id: 1001,
+                name: "كبسة دجاج",
+                image: "https://www.maggiarabia.com/sites/default/files/styles/srh_recipes/public/srh_recipes/d791f1fe6db43b115f964d133e890d3a.png?h=4f5b30f1&itok=TAeSYG2q",
                 category: "الأكلات السعودية",
                 time: "60 دقيقة"
             },
             {
-                id: 21,
-                name: "مفطح",
-                image: "images/recipes/moftah.jpg",
-                category: "الأكلات السعودية",
-                time: "180 دقيقة"
+                id: 1002,
+                name: "الكليجا",
+                image: "https://img.youm7.com/ArticleImgs/2020/11/20/90023-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%AC%D8%A7.jpg",
+                category: "الحلويات",
+                time: "90 دقيقة"
             },
             {
-                id: 22,
-                name: "سليق",
-                image: "images/recipes/saleeg.jpg",
+                id: 1003,
+                name: "مندي لحم",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHyhB_XzlCfcOiKLz66X56BdWgbWEoGHC2dA&s",
                 category: "الأكلات السعودية",
                 time: "120 دقيقة"
             },
             {
-                id: 23,
-                name: "مهلبية",
-                image: "images/recipes/muhalabia.jpg",
-                category: "الحلويات",
-                time: "30 دقيقة"
-            },
-            {
-                id: 24,
-                name: "بسبوسة",
-                image: "images/recipes/basbousa.jpg",
-                category: "الحلويات",
+                id: 1004,
+                name: "سوشي",
+                image: "https://rizpresto.ma/wp-content/uploads/2024/12/types-of-sushi-1024x675.jpg",
+                category: "الأكلات الآسيوية",
                 time: "45 دقيقة"
-            },
-            {
-                id: 25,
-                name: "قطايف",
-                image: "images/recipes/qatayef.jpg",
-                category: "الحلويات",
-                time: "60 دقيقة"
-            },
-            {
-                id: 26,
-                name: "حلى الجبن",
-                image: "images/recipes/cheese-dessert.jpg",
-                category: "الحلويات",
-                time: "40 دقيقة"
-            },
-            {
-                id: 27,
-                name: "ساشيمي",
-                image: "images/recipes/sashimi.jpg",
-                category: "الأكلات الآسيوية",
-                time: "20 دقيقة"
-            },
-            {
-                id: 28,
-                name: "تندوري",
-                image: "images/recipes/tandoori.jpg",
-                category: "الأكلات الآسيوية",
-                time: "90 دقيقة"
-            },
-            {
-                id: 29,
-                name: "فادا باو",
-                image: "images/recipes/vada-pav.jpg",
-                category: "الأكلات الآسيوية",
-                time: "50 دقيقة"
-            },
-            {
-                id: 30,
-                name: "سبرينج رول",
-                image: "images/recipes/spring-roll.jpg",
-                category: "الأكلات الآسيوية",
-                time: "35 دقيقة"
             }
         ];
 
         // Render favorites on page load
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('best.html loaded, rendering favorites');
             renderFavoriteRecipes(allRecipes);
         });
 
@@ -280,6 +224,8 @@
             if (recipe) {
                 localStorage.setItem('selectedRecipe', JSON.stringify(recipe));
                 window.location.href = `recipe.html?id=${recipeId}`;
+            } else {
+                console.error(`Recipe with ID ${recipeId} not found for viewing`);
             }
         }
     </script>
