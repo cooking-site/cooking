@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وصفة البقلاوة - وصفاتي</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .recipe-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .recipe-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+        .recipe-details h2 {
+            color: #E74C3C;
+            margin: 10px 0;
+        }
+        .recipe-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: #666;
+        }
+        .recipe-details ol {
+            padding-left: 20px;
+            color: #666;
+        }
+        .recipe-details li {
+            margin: 10px 0;
+        }
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #E74C3C;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-btn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="recipe-container">
+        <div class="recipe-image">
+            <img src="https://kitchen.sayidaty.net/uploads/small/23/236a178eb13f0f31493572616d95d3af_w750_h500.jpg" alt="البقلاوة">
+        </div>
+        <div class="recipe-details">
+            <h2>البقلاوة</h2>
+            <h3>المكونات:</h3>
+            <ul>
+                <li>500 غرام عجينة الفيلو</li>
+                <li>200 غرام جوز مفروم</li>
+                <li>150 غرام لوز مفروم</li>
+                <li>200 غرام سكر</li>
+                <li>100 غرام زبدة مذابة</li>
+                <li>1 ملعقة صغيرة قرفة</li>
+                <li>شراب السكر (2 كوب سكر، 1 كوب ماء، عصير نصف ليمون)</li>
+            </ul>
+            <h3>طريقة التحضير:</h3>
+            <ol>
+                <li>سخني الفرن على درجة حرارة 180 مئوية.</li>
+                <li>افردي نصف عجينة الفيلو في صينية مدهونة بالزبدة، وادهني كل طبقة بالزبدة.</li>
+                <li>وزعي خليط الجوز واللوز والسكر والقرفة فوق العجين.</li>
+                <li>غطي الخليط بباقي عجينة الفيلو، وادهني الطبقات بالزبدة.</li>
+                <li>قطعي البقلاوة إلى مربعات أو أشكال حسب الرغبة.</li>
+                <li>اخبزيها في الفرن لمدة 30-40 دقيقة حتى تصبح ذهبية اللون.</li>
+                <li>أخرجيها من الفرن وسكبي شراب السكر الدافئ فوقه فورًا.</li>
+                <li>اتركيها تبرد قبل التقديم.</li>
+            </ol>
+            <a href="index.html" class="back-btn">العودة إلى الصفحة الرئيسية <i class="fas fa-home"></i></a>
+        </div>
+    </div>
+    <script>
+        // دالة للتحقق من زر العودة
+        document.querySelector('.back-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = this.getAttribute('href');
+        });
+    </script>
+</body>
+</html>
