@@ -1,118 +1,124 @@
-// Initialize favorites
-function initFavorites() {
+// إدارة المفضلة - الإصدار النهائي
+document.addEventListener('DOMContentLoaded', function() {
+    initializeFavorites();
+    setupEventListeners();
+    
+    if (isFavoritesPage()) {
+        renderFavoriteRecipes();
+    }
+});
+
+// تهيئة المفضلة
+function initializeFavorites() {
     if (!localStorage.getItem('favorites')) {
         localStorage.setItem('favorites', JSON.stringify([]));
     }
 }
 
-// Toggle favorite status
-function toggleFavorite(recipeId) {
-    initFavorites();
-    let favorites = JSON.parse(localStorage.getItem('favorites'));
-    recipeId = parseInt(recipeId);
+// إعداد مستمعي الأحداث
+function setupEventListeners() {
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.favorite-btn, .asian-favorite-btn')) {
+            handleFavoriteClick(e.target.closest('.favorite-btn, .asian-favorite-btn'));
+        }
+    });
+}
+
+// التعامل مع النقر على زر المفضلة
+function handleFavoriteClick(button) {
+    const recipeId = parseInt(button.getAttribute('data-id'));
+    toggleFavorite(recipeId);
+    updateButtonState(button, recipeId);
     
+    if (isFavoritesPage()) {
+        renderFavoriteRecipes();
+    }
+}
+
+// تبديل حالة المفضلة
+function toggleFavorite(recipeId) {
+    const favorites = getFavorites();
     const index = favorites.indexOf(recipeId);
+    
     if (index === -1) {
         favorites.push(recipeId);
     } else {
         favorites.splice(index, 1);
     }
     
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-    updateFavoriteButtons();
-    
-    // Re-render if on favorites page
-    if (window.location.pathname.includes('best.html')) {
-        renderFavoriteRecipes(window.allRecipes || []);
-    }
+    saveFavorites(favorites);
 }
 
-// Update favorite buttons
-function updateFavoriteButtons() {
-    initFavorites();
-    const favorites = JSON.parse(localStorage.getItem('favorites'));
+// تحديث حالة الزر
+function updateButtonState(button, recipeId) {
+    const isFavorited = getFavorites().includes(recipeId);
+    button.classList.toggle('favorited', isFavorited);
+    button.innerHTML = isFavorited ? '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>';
+}
+
+// عرض الوصفات المفضلة
+function renderFavoriteRecipes() {
+    const container = document.getElementById('favoritesList');
+    if (!container) return;
     
-    document.querySelectorAll('.favorite-btn, .asian-favorite-btn').forEach(btn => {
-        const recipeId = parseInt(btn.getAttribute('data-id'));
-        if (favorites.includes(recipeId)) {
-            btn.classList.add('favorited');
-            btn.innerHTML = '<i class="fas fa-heart"></i>';
-        } else {
-            btn.classList.remove('favorited');
-            btn.innerHTML = '<i class="far fa-heart"></i>';
+    const favorites = getFavorites();
+    const recipes = window.allRecipes || [];
+    
+    container.innerHTML = favorites.length ? '' : `
+        <div class="empty-message">
+            <i class="fas fa-heart-broken"></i>
+            <p>لا توجد وصفات في المفضلة</p>
+            <p>اضغط على ♡ لإضافة وصفات</p>
+        </div>
+    `;
+    
+    favorites.forEach(id => {
+        const recipe = recipes.find(r => r.id === id);
+        if (recipe) {
+            container.appendChild(createRecipeCard(recipe));
         }
     });
 }
 
-// Render favorite recipes
-function renderFavoriteRecipes(recipes) {
-    const favoritesContainer = document.getElementById('favoritesList');
-    if (!favoritesContainer) return;
-
-    initFavorites();
-    const favorites = JSON.parse(localStorage.getItem('favorites'));
-    const filteredRecipes = recipes.filter(recipe => 
-        recipe && favorites.includes(parseInt(recipe.id))
-        .sort((a, b) => a.name.localeCompare(b.name));
-
-    favoritesContainer.innerHTML = '';
-
-    if (filteredRecipes.length === 0) {
-        favoritesContainer.innerHTML = `
-            <div class="empty-message">
-                <i class="fas fa-heart-broken"></i>
-                <p>لا توجد وصفات في المفضلة</p>
-                <p>اضغط على ♡ لإضافة وصفات</p>
+// إنشاء بطاقة وصفة
+function createRecipeCard(recipe) {
+    const card = document.createElement('div');
+    card.className = 'recipe-card favorite-card';
+    card.innerHTML = `
+        <img src="${recipe.image}" alt="${recipe.name}">
+        <button class="favorite-btn favorited" data-id="${recipe.id}">
+            <i class="fas fa-heart"></i>
+        </button>
+        <div class="recipe-info">
+            <h3>${recipe.name}</h3>
+            <div class="recipe-meta">
+                <span><i class="fas fa-utensils"></i> ${recipe.category}</span>
+                <span><i class="fas fa-clock"></i> ${recipe.time}</span>
             </div>
-        `;
-        return;
-    }
-
-    filteredRecipes.forEach(recipe => {
-        const recipeElement = document.createElement('div');
-        recipeElement.className = 'recipe-card favorite-card';
-        recipeElement.innerHTML = `
-            <img src="${recipe.image}" alt="${recipe.name}">
-            <button class="favorite-btn favorited" data-id="${recipe.id}">
-                <i class="fas fa-heart"></i>
-            </button>
-            <div class="recipe-info">
-                <h3>${recipe.name}</h3>
-                <div class="recipe-meta">
-                    <span><i class="fas fa-utensils"></i> ${recipe.category}</span>
-                    <span><i class="fas fa-clock"></i> ${recipe.time}</span>
-                </div>
-                <div class="recipe-ingredients">
-                    <h4>المكونات:</h4>
-                    <ul>
-                        <li>أرز</li>
-                        <li>خضروات</li>
-                        <li>بهارات</li>
-                        <li>لحوم/أسماك</li>
-                        <li>صلصات</li>
-                    </ul>
-                </div>
+            <div class="recipe-ingredients">
+                <h4>المكونات الأساسية:</h4>
+                <ul>
+                    <li>أرز/خبز/معكرونة</li>
+                    <li>لحوم/أسماك/خضروات</li>
+                    <li>بهارات متعددة</li>
+                    <li>صلصات</li>
+                    <li>زيوت/سمن</li>
+                </ul>
             </div>
-        `;
-        favoritesContainer.appendChild(recipeElement);
-    });
-
-    // Add event listeners to new buttons
-    document.querySelectorAll('.favorite-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            toggleFavorite(this.getAttribute('data-id'));
-        });
-    });
+        </div>
+    `;
+    return card;
 }
 
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', function() {
-    initFavorites();
-    updateFavoriteButtons();
-    
-    // Initial render for favorites page
-    if (window.location.pathname.includes('best.html') && window.allRecipes) {
-        renderFavoriteRecipes(window.allRecipes);
-    }
-});
+// مساعدات
+function getFavorites() {
+    return JSON.parse(localStorage.getItem('favorites')) || [];
+}
+
+function saveFavorites(favorites) {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+function isFavoritesPage() {
+    return window.location.pathname.includes('best.html');
+}
