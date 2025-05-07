@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حلويات - وصفاتي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo"></div>
+            <h1>وصفاتي</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="ابحث عن وصفة...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul class="categories">
+                    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="asian.html"><i class="fas fa-egg"></i> الأكلات الآسيوية</a></li>
+                    <li><a href="sweet.html" class="active"><i class="fas fa-cookie"></i> الحلويات</a></li>
+                    <li><a href="best.html"><i class="fas fa-heart"></i> المفضلة</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <div class="desserts-banner">
+                <h1>ألذ الحلويات الشرقية والغربية</h1>
+                <p>وصفات حلويات سهلة ولذيذة</p>
+            </div>
+
+            <div class="recipes-grid" id="desserts-container">
+                <!-- يتم تعبئته تلقائيًا -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const desserts = [
+            { id: 101, name: "البقلاوة", image: "https://kitchen.sayidaty.net/uploads/small/23/236a178eb13f0f31493572616d95d3af_w750_h500.jpg", category: "حلويات شرقية", time: "60 دقيقة", difficulty: "متوسطة" },
+            { id: 102, name: "الكنافة", image: "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26", category: "حلويات شرقية", time: "45 دقيقة", difficulty: "سهلة" },
+            { id: 103, name: "أم علي", image: "https://kitchen.sayidaty.net/uploads/small/6f/6f262dff35fb85ba94125b0d2fb2124e_w750_h750.jpg", category: "حلويات مصرية", time: "30 دقيقة", difficulty: "سهلة" },
+            { id: 104, name: "القطايف", image: "https://modo3.com/thumbs/fit630x300/22489/1597675632/%D8%B7%D8%B1%D9%8A%D9%82%D8%A9_%D8%B9%D8%AC%D9%8A%D9%86%D8%A9_%D8%A7%D9%84%D9%82%D8%B7%D8%A7%D9%8A%D9%81.jpg", category: "حلويات رمضانية", time: "90 دقيقة", difficulty: "متوسطة" },
+            { id: 105, name: "المعمول", image: "https://static.webteb.net/images/content/ramadanrecipe_recipe_992_247aaca2721-4f4e-4cf7-9e15-472e7f2585bd.jpg", category: "حلويات عيدية", time: "120 دقيقة", difficulty: "صعبة" },
+            { id: 106, name: "تشيز كيك", image: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d", category: "حلويات غربية", time: "180 دقيقة", difficulty: "متوسطة" },
+            { id: 107, name: "كيك الشوكولاتة", image: "https://images.unsplash.com/photo-1606890737648-81767e598bb9", category: "حلويات غربية", time: "90 دقيقة", difficulty: "سهلة" },
+            { id: 108, name: "لقيمات", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlKABbLoFew6Bl6-ppMndUNE0tOjm3_haoWw&s", category: "حلويات خليجية", time: "45 دقيقة", difficulty: "سهلة" },
+            { id: 109, name: "مهلبية", image: "https://i.ytimg.com/vi/UWOpvwq2yCo/sddefault.jpg", category: "حلويات عربية", time: "30 دقيقة", difficulty: "سهلة" },
+            { id: 110, name: "بلح الشام", image: "https://modo3.com/thumbs/fit630x300/150944/1483571088/%D8%B7%D8%B1%D9%8A%D9%82%D8%A9_%D8%B9%D8%AC%D9%8A%D9%86%D8%A9_%D8%A8%D9%84%D8%AD_%D8%A7%D9%84%D8%B4%D8%A7%D9%85.jpg", category: "حلويات شامية", time: "60 دقيقة", difficulty: "متوسطة" }
+        ];
+
+        function displayDesserts() {
+            const container = document.getElementById('desserts-container');
+            container.innerHTML = desserts.map(dessert => `
+                <div class="recipe-card">
+                    <img src="${dessert.image}" alt="${dessert.name}" class="recipe-img">
+                    <button class="favorite-btn" data-id="${dessert.id}"><i class="far fa-heart"></i></button>
+                    <div class="recipe-content">
+                        <h3 class="recipe-title">${dessert.name}</h3>
+                        <div class="recipe-meta">
+                            <span><i class="fas fa-utensils"></i> ${dessert.category}</span>
+                            <span><i class="fas fa-clock"></i> ${dessert.time}</span>
+                        </div>
+                        <div class="recipe-ingredients">
+                            <h4>المكونات:</h4>
+                            <ul class="ingredients-list">
+                                <li>دقيق</li>
+                                <li>سكر</li>
+                                <li>زبدة</li>
+                                <li>حليب</li>
+                                <li>مكسرات</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            displayDesserts();
+            
+            // Search functionality for desserts
+            document.querySelector('.search-bar button').addEventListener('click', function() {
+                const searchTerm = document.querySelector('.search-bar input').value.toLowerCase();
+                const recipeCards = document.querySelectorAll('.recipe-card');
+                
+                recipeCards.forEach(card => {
+                    const title = card.querySelector('.recipe-title').textContent.toLowerCase();
+                    if (title.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="favorites.js"></script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93ba11c9e8bc4564',t:'MTc0NjU1MTIwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>
