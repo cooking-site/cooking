@@ -20,16 +20,21 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Toggle favorite status
+// Toggle favorite status
 function toggleFavorite(recipeId) {
+    console.log('Toggling favorite for recipe ID:', recipeId); // سطر جديد للتصحيح
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     recipeId = parseInt(recipeId);
     
     if (favorites.includes(recipeId)) {
         favorites = favorites.filter(id => id !== recipeId);
+        console.log('Removed from favorites:', recipeId); // سطر جديد للتصحيح
     } else {
         favorites.push(recipeId);
+        console.log('Added to favorites:', recipeId); // سطر جديد للتصحيح
     }
     localStorage.setItem('favorites', JSON.stringify(favorites));
+    console.log('Current favorites:', favorites); // سطر جديد للتصحيح
 }
 
 // Update favorite buttons' state
