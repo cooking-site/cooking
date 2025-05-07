@@ -249,23 +249,36 @@
         </main>
     </div>  
   </script>
- const allRecipes = [
-    // الوصفات الأساسية (باستخدام نفس IDs الموجودة في أزرار القلب)
-    { id: 1, name: "كبسة دجاج", image: "https://www.maggiarabia.com/...", category: "الأكلات السعودية", time: "60 دقيقة" },
-    { id: 2, name: "الكليجا", image: "https://img.youm7.com/...", category: "الحلويات", time: "90 دقيقة" },
-    { id: 3, name: "مندي لحم", image: "https://encrypted-tbn0.gstatic.com/...", category: "الأكلات السعودية", time: "120 دقيقة" },
-    { id: 4, name: "سوشي", image: "https://rizpresto.ma/...", category: "الأكلات الآسيوية", time: "45 دقيقة" },
-    { id: 1005, name: "المطازيز", image: "https://upload.wikimedia.org/...", category: "الأكلات السعودية", time: "120 دقيقة" },
-    { id: 1006, name: "المنسف", image: "https://upload.wikimedia.org/...", category: "الأكلات السعودية", time: "150 دقيقة" },
-    { id: 1007, name: "القرصان", image: "https://upload.wikimedia.org/...", category: "الأكلات السعودية", time: "90 دقيقة" },
-    { id: 1008, name: "مثلوثة", image: "https://upload.wikimedia.org/...", category: "الأكلات السعودية", time: "100 دقيقة" },
-    { id: 1009, name: "الصبة", image: "https://upload.wikimedia.org/...", category: "الأكلات السعودية", time: "110 دقيقة" },
-    { id: 1010, name: "الرقش", image: "https://upload.wikimedia.org/...", category: "الأكلات السعودية", time: "80 دقيقة" },
+ <script>
+    // مصفوفة الوصفات الرئيسية (تطابق data-id في الأزرار)
+    const allRecipes = [
+        // الوصفات الأساسية
+        { id: 1, name: "كبسة دجاج", image: "https://www.maggiarabia.com/...", category: "الأكلات السعودية", time: "60 دقيقة" },
+        { id: 2, name: "الكليجا", image: "https://img.youm7.com/...", category: "الحلويات", time: "90 دقيقة" },
+        { id: 3, name: "مندي لحم", image: "https://encrypted-tbn0.gstatic.com/...", category: "الأكلات السعودية", time: "120 دقيقة" },
+        { id: 4, name: "سوشي", image: "https://rizpresto.ma/...", category: "الأكلات الآسيوية", time: "45 دقيقة" },
+        { id: 1005, name: "المطازيز", image: "https://upload.wikimedia.org/...", category: "الأكلات السعودية", time: "120 دقيقة" },
+        { id: 1006, name: "المنسف", image: "https://upload.wikimedia.org/...", category: "الأكلات السعودية", time: "150 دقيقة" },
+        { id: 1007, name: "القرصان", image: "https://upload.wikimedia.org/...", category: "الأكلات السعودية", time: "90 دقيقة" },
+        { id: 1008, name: "مثلوثة", image: "https://upload.wikimedia.org/...", category: "الأكلات السعودية", time: "100 دقيقة" },
+        { id: 1009, name: "الصبة", image: "https://upload.wikimedia.org/...", category: "الأكلات السعودية", time: "110 دقيقة" },
+        { id: 1010, name: "الرقش", image: "https://upload.wikimedia.org/...", category: "الأكلات السعودية", time: "80 دقيقة" },
 
-    // الوصفات الإضافية (باستخدام IDs جديدة غير متكررة)
-    { id: 1019, name: "المطازيز", image: "images/recipes/matazeez.jpg", category: "الأكلات السعودية", time: "120 دقيقة" },
-    { id: 1020, name: "المنسف", image: "images/recipes/mansaf.jpg", category: "الأكلات السعودية", time: "150 دقيقة" },
-    // ... وهكذا لباقي الوصفات مع زيادة 1000 على الID الأصلي
+        // الوصفات الإضافية (تم تغيير IDs لتجنب التكرار)
+        { id: 1019, name: "المطازيز", image: "images/recipes/matazeez.jpg", category: "الأكلات السعودية", time: "120 دقيقة", icon: "fas fa-utensils", description: "طبق تقليدي من العجين المطبوخ مع اللحم والخضروات في مرق غني." },
+        { id: 1020, name: "المنسف", image: "images/recipes/mansaf.jpg", category: "الأكلات السعودية", time: "150 دقيقة", icon: "fas fa-utensils", description: "طبق جنوبي شهير يقدم مع لبن الجميد والأرز." },
+        { id: 1021, name: "القرصان", image: "images/recipes/qursan.jpg", category: "الأكلات السعودية", time: "90 دقيقة", icon: "fas fa-utensils", description: "خبز القرصان المفتت مع مرق اللحم أو الدجاج." },
+        { id: 1022, name: "مثلوثة", image: "images/recipes/mathlootha.jpg", category: "الأكلات السعودية", time: "100 دقيقة", icon: "fas fa-utensils", description: "طبق يجمع بين اللحم والخضروات مع الأرز أو العجين." },
+        { id: 1023, name: "الصبة", image: "images/recipes/sabba.jpg", category: "الأكلات السعودية", time: "110 دقيقة", icon: "fas fa-utensils", description: "طبق غربي تقليدي من الدجاج والخضروات." },
+        { id: 1024, name: "الرقش", image: "images/recipes/raqsh.jpg", category: "الأكلات السعودية", time: "80 دقيقة", icon: "fas fa-utensils", description: "عجين مقلي محشو باللحم أو الخضروات." },
+        { id: 1025, name: "قطايف", image: "images/recipes/qatayef.jpg", category: "الحلويات", time: "60 دقيقة", icon: "fas fa-cookie", description: "فطائر محشوة تقدم في رمضان إما بالقشطة أو الجوز." },
+        { id: 1026, name: "حلى الجبن", image: "images/recipes/cheese-dessert.jpg", category: "الحلويات", time: "40 دقيقة", icon: "fas fa-cookie", description: "حلوى خفيفة من الجبن والكريمة." },
+        { id: 1027, name: "ساشيمي", image: "images/recipes/sashimi.jpg", category: "الأكلات الآسيوية", time: "20 دقيقة", icon: "fas fa-fish", description: "شرائح سمك نيئة تقدم مع صلصة الصويا والوسابي." },
+        { id: 1028, name: "تندوري", image: "images/recipes/tandoori.jpg", category: "الأكلات الآسيوية", time: "90 دقيقة", icon: "fas fa-drumstick-bite", description: "دجاج متبل بالبهارات ويشوى في الفرن." },
+        { id: 1029, name: "فادا باو", image: "images/recipes/vada-pav.jpg", category: "الأكلات الآسيوية", time: "50 دقيقة", icon: "fas fa-bread-slice", description: "سندويشات هندية من البطاطس المقلية." },
+        { id: 1030, name: "سبرينج رول", image: "images/recipes/spring-roll.jpg", category: "الأكلات الآسيوية", time: "35 دقيقة", icon: "fas fa-egg", description: "لفائف رقيقة محشوة بالخضار واللحم." }
+    ];
+</script>
 ];
   <script src="favorites.js"></script>
   <script src="script.js"></script>
